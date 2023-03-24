@@ -1,0 +1,11 @@
+{
+    "short_name":"Dappmine",
+    "name":"Dappmine",
+    "icons":[{"src":"/assets/img/screens/dappmine-512.png","type":"image/png","sizes":"512x512","purpose":"any maskable"},
+            {"src":"/assets/img/screens/dappmine-192.png","type":"image/png","sizes":"192x192","purpose":"any maskable"}],
+    "start_url":"index.html",
+    "background_color":"#000000",
+    "theme_color":"#a05c35",
+    "display":"fullscreen",
+    "orientation":"portrait"
+}

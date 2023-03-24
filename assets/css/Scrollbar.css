@@ -1,0 +1,15 @@
+:root {
+    --shadow: #8c6b1e;
+    --scrollbarBG: #eee;
+    --thumbBG: #303330;
+  }
+  ::-webkit-scrollbar {
+    width: 13px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG);
+    box-shadow: 0 -100vh 0 100vh var(--shadow), 0 0 15px 5px black;
+  }

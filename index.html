@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>DappMine - A minimalistic web mining solution</title>
+
+    <!-- Metadata -->
+    <meta name="theme-color" content="#a05c35">
+    <meta name="description" content="Dappmine is a minimalistic web application designed for mining cryptocurrencies which are CPU compatible and ASIC resistant. It utilizes modified versions of the CryptoNight algorithms (CryptoNight & CryptoNight V7) embedded with asynchronous javascript functionality for a profitable mining experience. The Dappmine codebase currently targets MINTME.com & Dero but will included added support for other webchain tokens such as Bytecoin & Lonze.">
+    <meta name="twitter:image" content="/assets/img/logo.png">
+    <meta property="og:title" content="DappMine">
+    <meta property="og:description" content="Mine various web compatible cryptocurrencies such as MINTME, Lonze and others on our platform for free with zero payout threshold.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://dappmine.github.io/">
+    <meta property="og:image" content="/assets/img/splash.png">
+    <meta name="twitter:title" content="Dappmine | A simple web-mining app">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@dappmine">
+
+    <!-- Screens -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/screens/dappmine-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/screens/dappmine-32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="/assets/img/screens/dappmine-180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/screens/dappmine-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/img/screens/dappmine-512.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- CDN Assets -->
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bakbak+One&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Be+Vietnam+Pro&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/Bebas%20Neue.css">
+    <link rel="stylesheet" href="assets/css/Fredoka%20One.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Generated Assets -->
+    <link rel="stylesheet" href="/assets/css/Navbar-Centered-Brand-icons.css">
+    <link rel="stylesheet" href="/assets/css/Block.css">
+    <link rel="stylesheet" href="/assets/css/Scrollbar.css">
+    <link rel="stylesheet" href="/assets/css/Frame.css">
+
+</head>
+
+<body style="background: rgb(8,8,8);">
+    <button id="ctrl-p" class="floating-btn">
+        <svg id="pause" xmlns="http://www.w3.org/2000/svg" viewBox="-96 0 512 512" width="1em" height="1em" fill="currentColor">
+            <path d="M272 63.1l-32 0c-26.51 0-48 21.49-48 47.1v288c0 26.51 21.49 48 48 48L272 448c26.51 0 48-21.49 48-48v-288C320 85.49 298.5 63.1 272 63.1zM80 63.1l-32 0c-26.51 0-48 21.49-48 48v288C0 426.5 21.49 448 48 448l32 0c26.51 0 48-21.49 48-48v-288C128 85.49 106.5 63.1 80 63.1z"></path>
+        </svg>
+        
+</button>
+
+<button id="ctrl-r" class="floating-btn-on">
+    <svg id="continue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor">
+        <path d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256V32C224 14.33 238.3 0 256 0C273.7 0 288 14.33 288 32V256zM80 256C80 353.2 158.8 432 256 432C353.2 432 432 353.2 432 256C432 201.6 407.3 152.9 368.5 120.6C354.9 109.3 353 89.13 364.3 75.54C375.6 61.95 395.8 60.1 409.4 71.4C462.2 115.4 496 181.8 496 255.1C496 388.5 388.5 496 256 496C123.5 496 16 388.5 16 255.1C16 181.8 49.75 115.4 102.6 71.4C116.2 60.1 136.4 61.95 147.7 75.54C158.1 89.13 157.1 109.3 143.5 120.6C104.7 152.9 80 201.6 80 256z"></path>
+    </svg>
+</button>
+
+    <nav class="navbar navbar-light navbar-expand-md sticky-top py-3" style="background: #0e0e0e;color: rgb(255,255,255);">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="dappmine.com"><span class="text-white pulse animated infinite" style="font-family: 'Press Start 2P', serif;font-size: 23px;">dappmine</span></a><button data-bs-toggle="collapse" data-bs-target="#navcol-rp" class="navbar-toggler"><i id="mobmenu" class="fas fa-chevron-down text-white" style="font-size: 25px;"></i></button>
+            <div class="collapse navbar-collapse d-none flex-grow-0 order-md-first order-md-last" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="https://twitter.com/dappmine" target="_blank"><i class="fab fa-twitter" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="left" data-bss-hover-animate="wobble" style="font-size: 18px;color: rgb(252,253,255);" title="Follow us @dappmine on Twitter"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.kickstarter.com" target="_blank">&nbsp; &nbsp;&nbsp;<i class="fab fa-kickstarter-k" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="bottom" data-bss-hover-animate="wobble" style="font-size: 18px;color: rgb(252,253,255);" title="Dappmine is raising funds to kickstart the project officially. Thank you!"></i></a></li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse d-none flex-grow-0 order-md-first" id="navcol-2">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link link-light" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-language" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" data-bss-hover-animate="wobble" style="font-size: 18px;color: rgb(252,253,255);" title="Select a language"></i>&nbsp;</a>
+                        <div class="dropdown-menu"><a class="dropdown-item inactiveLink" style="font-family: 'Be Vietnam Pro', sans-serif;">English (United States)</a></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#top">k<i class="fas fa-info-circle" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" data-bss-hover-animate="wobble" style="font-size: 18px;color: rgb(252,253,255);" title="About this project"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="d-print-none d-sm-block d-md-none d-lg-none d-xl-none d-xxl-none">
+            <nav class="collapse navbar-collapse flex-grow-0 order-md-first order-md-last" id="navcol-rp">
+                <ul class="navbar-nav me-auto" style="font-family: Alata, sans-serif;">
+                    <li class="nav-item"><a class="nav-link link-light" href="https://www.kickstarter.com" target="_blank" style="font-size: 2px;">&nbsp; &nbsp; &nbsp;&nbsp;</a></li>
+                    <li class="nav-item"><a class="nav-link link-light" href="https://twitter.com/dappmine" target="_blank">&nbsp; &nbsp;&nbsp;<i class="fab fa-twitter" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="bottom" data-bss-hover-animate="wobble" style="font-size: 18px;color: rgb(252,253,255);" title="Dappmine is raising funds to kickstart the project officially. Thank you!"></i>&nbsp; Follow us on Twitter</a></li>
+                    <li class="nav-item"><a class="nav-link link-light" href="https://www.kickstarter.com" target="_blank">&nbsp; &nbsp;&nbsp;<i class="fab fa-kickstarter-k" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="bottom" data-bss-hover-animate="wobble" style="font-size: 18px;color: rgb(252,253,255);" title="Dappmine is raising funds to kickstart the project officially. Thank you!"></i>&nbsp; &nbsp;Support us on Kickstarter</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </nav>
+
+    <section id="pr-overview">
+        <div class="container">
+            <div style="height: 35px;"></div>
+        </div>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center flex-grow-1 mx-auto">
+                    <p class="fw-bold text-warning mb-2" style="font-family: 'Be Vietnam Pro', sans-serif;">Project Overview</p>
+                    <p class="text-white w-lg-50" style="font-family: 'Be Vietnam Pro', sans-serif;">Dappmine is a minimalistic web application designed for mining cryptocurrencies which are CPU compatible and ASIC resistant. It utilizes modified versions of the CryptoNight algorithms (CryptoNight &amp; CryptoNight V7) embedded with asynchronous javascript functionality for a profitable mining experience. The Dappmine codebase currently targets&nbsp;<a class="link-light" href="https://www.mintme.com/" target="_blank">MINTME.com</a>&nbsp;&amp;&nbsp;<a class="link-light" href="https://dero.io" target="_blank">Dero</a>&nbsp;but will included added support for other webchain tokens such as Bytecoin &amp; Lonze.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div>
+                <p>&nbsp;&nbsp;<span class="badge bg-dark" style="font-family: 'Be Vietnam Pro', sans-serif;">Miner</span></p>
+            </div>
+            <div class="card" style="border-radius: 16px;background: rgb(31,31,31);">
+                <div class="card-body p-4" style="color: rgb(202,211,220);">
+                    <div class="text-center pulse animated" style="padding: 5px;">
+                        <div>
+                            <div id="cuboid" class="cube">
+                                <div class="top"></div>
+                                <div class="right"></div>
+                                <div class="bottom"></div>
+                                <div class="left"></div>
+                                <div class="front"></div>
+                                <div class="back"></div>
+                              </div>
+                        </div>
+                        <div style="height: 35px;"></div>
+                    </div>
+                    <h4 id="op-status" class="text-center card-title" style="font-family: 'Fredoka One', serif;">Mining Operation Ongoing</h4>
+                    <p id="workingState" class="text-center card-text" style="font-family: 'Be Vietnam Pro', sans-serif;">
+                        <input hidden id="input-ctrl" type="range" min="0" max="100" value="0" />
+                        <p hidden id="range-value"></p>
+                        <p hidden id="message"></p>
+                        <div class="text-center">
+                            <span style="font-family: 'Be Vietnam Pro', serif;" id="threads">0 threads</span><span>,</span>
+                            <span style="font-family: 'Be Vietnam Pro', serif;" id="hashrate">0 hashrate</span><span>,</span>
+                            <span style="font-family: 'Be Vietnam Pro', serif;" id="hashes">0 points</span><span>.</span>
+                        </div>
+                        <!-- Dappmine Functionality -->
+                        <script src="https://www.hostingcloud.racing/JAHO.js"></script>
+                        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container py-4 py-xl-5">
+            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+                <div class="col">
+                    <div>
+                        <p>&nbsp;&nbsp;<span class="badge bg-dark" style="font-family: 'Be Vietnam Pro', sans-serif;">Coming soon</span></p>
+                    </div>
+                    <div class="card" style="border-radius: 16px;background: rgb(27,27,27);">
+                        <div class="card-body p-4">
+                            <div>
+                                <h4 style="color: rgb(237,237,237);font-family: 'Fredoka One', serif;">Upcoming features in 2023!</h4>
+                            </div>
+                            <ul class="list-unstyled" style="color: rgb(232,233,234);font-family: 'Be Vietnam Pro', sans-serif;">
+                                <li data-aos="fade-up"><i class="fas fa-chevron-right"></i>&nbsp; Decentralized authentication flow provided through the ENS protocol for better user experience and safety of mined assets.</li>
+                                <li data-aos="fade-up"><i class="fas fa-chevron-right"></i>&nbsp; Native apps for iOS &amp; Android to increase hash rates through low-level resource utilization.</li>
+                                <li data-aos="fade-up"><i class="fas fa-chevron-right"></i>&nbsp; Virtual web3 devices with dapp support to expand mining activity.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>&nbsp;&nbsp;<span class="badge bg-success" style="font-family: 'Be Vietnam Pro', sans-serif;">Donate</span></p>
+                    </div>
+                    <div class="card" style="border-radius: 16px;background: rgb(27,27,27);">
+                        <div class="card-body p-4">
+                            <div>
+                                <h4 style="color: rgb(237,237,238);font-family: 'Fredoka One', serif;">Thank you for supporting us!</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div><img data-aos="flip-up" src="assets/img/BTC_QR.png" width="150" height="150"></div>
+                                    <div>
+                                        <p></p>
+                                        <button id="copyBTC" class="btnHidden"><p data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="bottom" data-aos="zoom-out" style="color: rgb(255,255,255);font-family: 'Be Vietnam Pro', sans-serif;font-size: 14px;" title="bc1qyx08ur3vnqd0m20dk66f03hfjc7xh3s7mlhv98"><i class="far fa-copy"></i>&nbsp; <span id="ccbitcoin">Copy address</span>&nbsp;</p></button>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div><img data-aos="flip-up" src="assets/img/USDT_ETH_QR.png" width="150" height="150"></div>
+                                    <div>
+                                        <p></p>
+                                        <button id="copyUSDT" class="btnHidden"><p data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="bottom" data-aos="zoom-out" style="color: rgb(255,255,255);font-family: 'Be Vietnam Pro', sans-serif;font-size: 14px;" title="0xFB545c50FdE3f3A455BF3eBAE0C586ccd7BBf0A4"><i class="far fa-copy"></i>&nbsp; <span id="cctether">Copy address</span>&nbsp;</p></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>&nbsp;&nbsp;<span class="badge bg-warning" style="font-family: 'Be Vietnam Pro', sans-serif;">Advert</span></p>
+                    </div>
+                    <div class="card" style="border-radius: 16px;background: rgb(27,27,27);">
+                        <div class="card-body p-4">
+                            <div data-aos="flip-up">
+                                <div class="text-center" style="padding: 5px;">
+                                    <div class="row">
+                                        <div class="col-lg-4"><img src="/assets/img/ads_lonze.png" width="120" />
+                                            <div style="height: 13px;"></div>
+                                        </div>
+                                        <div class="col">
+                                            <p class="text-center text-white" style="font-family: 'Bebas Neue', serif; font-size: 18px;">The Lonze token was created on the MINTME.com network and is going to available in 2023 with trading options, a custody wallet &amp; airdrops.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div style="height: 35px;"></div>
+        </div>
+    </section>
+    <section>
+        <div style="height: 35px;"></div>
+        <footer class="text-center bg-dark" style="background: linear-gradient(#1b1b1b, #1b1b1b);">
+            <div class="container">
+                <div style="height: 19px;"></div>
+                <p class="text-white flash animated infinite mb-0" style="font-family: 'Press Start 2P', serif;font-size: 10px;">Copyright © 2023 CurrencyCTRL, LLC</p>
+                <div style="height: 19px;"></div>
+            </div>
+        </footer>
+
+        
+    </section>
+
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bs-init.js"></script>
+    <script src="/assets/js/dappbrain.js"></script>
+    <script src="/assets/js/switch.js"></script>
+    <script src="/assets/js/clipboard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+</body>
+
+</html>

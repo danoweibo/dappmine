@@ -1,0 +1,78 @@
+
+#mobmenu {
+    transition: 300ms ease all;
+}
+
+.navbar-toggler:focus, .navbar-toggler:active, .navbar-toggler-icon:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.inactiveLink {
+    pointer-events: none;
+    cursor: default;
+ }
+
+.btnHidden {
+    border: 0;
+    background-color: transparent;
+  }
+
+.floating-btn {
+    width: 70px;
+    height: 70px;
+    background: rgb(40, 39, 39);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 40px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 5;
+    transition: background 0.25s;
+    
+
+    outline: blue;
+    border: none;
+    cursor: pointer;
+}
+
+.floating-btn-on {
+    width: 70px;
+    height: 70px;
+    background: rgb(3, 106, 72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 40px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 5;
+    transition: background 0.25s;
+
+    outline: blue;
+    border: none;
+    cursor: pointer;
+}
+
+.floating-btn:active {
+    background: #3a3939;
+}
+
+.floating-btn-on:active {
+    background: rgb(8, 147, 100);
+}
+
+#ctrl-r {
+    display: none;
+}
